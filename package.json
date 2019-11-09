@@ -1,0 +1,49 @@
+{
+  "name": "firebase-ssr-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/deltaepsilon/firebase-ssr-starter.git",
+  "author": "Chris Esplin <chris@chrisesplin.com>",
+  "license": "apache-2.0",
+  "dependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.53",
+    "@zeit/next-css": "^0.2.0",
+    "algoliasearch": "^3.30.0",
+    "firebase-tools": "^4.0.0",
+    "from-now": "^1.0.2",
+    "md5": "^2.2.1",
+    "next": "^6.0.3",
+    "pica": "^4.1.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "rmwc": "^1.8.0",
+    "rxjs": "^6.2.2",
+    "unistore": "^3.0.6",
+    "workerize": "^0.1.7"
+  },
+  "devDependencies": {
+    "@zeit/next-source-maps": "^0.0.2",
+    "stats-webpack-plugin": "^0.6.2",
+    "webpack-bundle-analyzer": "^2.13.1"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "next build --stats",
+    "stats": "webpack-bundle-analyzer ./.next/server/stats.json",
+    "export": "next export",
+    "copy": "sh bin/copy.sh",
+    "deploy": "sh bin/build.sh && sh bin/deploy.sh",
+    "export:windows": "rmdir /S /Y out & next export",
+    "copy:windows": "powershell .\\bin\\copy.ps1",
+    "test:windows": "cd functions & yarn test:prod",
+    "deploy:windows": "powershell .\\bin\\build.ps1 & powershell .\\bin\\deploy.ps1",
+    "deploy:database": "firebase deploy --only database",
+    "deploy:firestore": "firebase deploy --only firestore",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "v": "node --version"
+  }
+}

@@ -1,0 +1,25 @@
+.primary-app-bar .mdc-top-app-bar {
+  position: relative;
+}
+
+.primary-app-bar .offline {
+  display: flex;
+  align-items: center;
+
+  background: var(--color-offline);
+
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-large);
+}
+
+.primary-app-bar .menu-icon-wrapper {
+  margin-left: var(--menu-icon-width);
+  transition: margin-left var(--drawer-speed) linear;
+}
+
+@media all and (max-width: 1024px) {
+  .primary-app-bar .menu-icon-wrapper {
+    margin-left: 0;
+  }
+}

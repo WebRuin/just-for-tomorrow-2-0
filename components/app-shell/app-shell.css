@@ -1,0 +1,40 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-shell .content {
+  display: flex;
+  flex-grow: 1;
+  align-items: stretch;
+
+  position: relative;
+}
+
+.app-shell main {
+  flex: 1;
+  justify-content: center;
+  max-width: 100vw;
+}
+
+.app-shell .permanent-drawer {
+  position: relative;
+  transition: margin-left var(--drawer-speed) linear;
+}
+
+.app-shell .permanent-drawer:focus-within {
+  margin-left: 0;
+}
+
+@media all and (max-width: 1024px) {
+  .app-shell .permanent-drawer {
+    margin-left: calc(-1 * var(--drawer-width));
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-shell main {
+    max-width: calc(100vw - var(--drawer-width));
+  }
+}

@@ -1,0 +1,31 @@
+.paper {
+  max-width: calc(100vw);
+}
+
+.paper .contents {
+  padding: 1rem;
+}
+
+.paper.card {
+  width: 480px;
+}
+
+.paper.card .centered {
+  text-align: center;
+}
+
+.paper.card footer {
+  display: flex;
+  justify-content: space-between;
+  direction: rtl;
+
+  margin-top: 2rem;
+}
+
+.paper.card .flex {
+  flex: 1;
+}
+
+.paper.card footer button:not(:last-child) {
+  margin-right: 0.5rem;
+}

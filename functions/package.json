@@ -1,0 +1,27 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "test": "jest --watchAll",
+    "test:prod": "jest --detectOpenHandles",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "algoliasearch": "^3.30.0",
+    "firebase-admin": "~5.13.1",
+    "firebase-functions": "^2.0.0",
+    "md5": "^2.2.1",
+    "uuid": "^3.3.2"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "private": true,
+  "devDependencies": {
+    "jest": "^23.4.1"
+  }
+}
