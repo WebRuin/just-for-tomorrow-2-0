@@ -1,13 +1,13 @@
-import createStore from 'unistore';
-import * as rawActions from './actions';
-import devEnvironment from '../environments/environment.dev';
-import prodEnvironment from '../environments/environment';
+import createStore from "unistore";
+import * as rawActions from "./actions";
+import devEnvironment from "../pages/environments/environment.dev";
+import prodEnvironment from "../pages/environments/environment";
 
-import syncMessagingTokens from './sync/sync-messaging-tokens';
+import syncMessagingTokens from "./sync/sync-messaging-tokens";
 
-const localStorageName = 'firebase-ssr-starter';
+const localStorageName = "firebase-ssr-starter";
 const nodeEnv = process.env.NODE_ENV;
-const isDevelopment = nodeEnv == 'development';
+const isDevelopment = nodeEnv == "development";
 
 const localStorageState = getLocalStorage() || {};
 
@@ -15,30 +15,30 @@ const initialState = {
   adminTabIndex: 0,
   claims: {},
   currentUser: {},
-  detailUserId: '',
-  isSSR: typeof window != 'object',
-  isDevelopment: nodeEnv == 'development',
+  detailUserId: "",
+  isSSR: typeof window != "object",
+  isDevelopment: nodeEnv == "development",
   isSubscribedToFCM: false,
   nodeEnv,
   router: {},
   settings: {},
   subscribedToMessages: false,
   user: {
-    claims: {},
+    claims: {}
   },
   ...localStorageState,
   // Not overridden by localStorageState 👇
   beforeInstallEvent: null,
   environment: isDevelopment ? devEnvironment : prodEnvironment,
-  imageDetailSrc: '',
+  imageDetailSrc: "",
   isDrawerOpen: false,
   loaded: false,
   messagingToken: null,
   notifications: [],
-  pathname: '/',
+  pathname: "/",
   presence: false,
   query: {},
-  serviceWorkerRegistered: false,
+  serviceWorkerRegistered: false
 };
 
 const store = createStore(initialState);
@@ -54,7 +54,7 @@ setWindowState();
 store.subscribe(setWindowState);
 
 function setWindowState() {
-  if (typeof window == 'object') {
+  if (typeof window == "object") {
     window.state = store.getState();
   }
 }
@@ -66,7 +66,7 @@ store.subscribe(syncMessagingTokens(mappedActions, store));
 function getLocalStorage() {
   let result = {};
 
-  if (typeof window == 'object') {
+  if (typeof window == "object") {
     const stringified = localStorage.getItem(localStorageName);
 
     if (stringified) {

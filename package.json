@@ -1,9 +1,9 @@
 {
-  "name": "firebase-ssr-starter",
+  "name": "just-for-tomorrow",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/deltaepsilon/firebase-ssr-starter.git",
-  "author": "Chris Esplin <chris@chrisesplin.com>",
+  "repository": "https://github.com/WebRuin/just-for-tomorrow-2-0.git",
+  "author": "Chris Esplin <tim.smith.hdg@gmail.com>",
   "license": "apache-2.0",
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.53",
@@ -36,10 +36,6 @@
     "export": "next export",
     "copy": "sh bin/copy.sh",
     "deploy": "sh bin/build.sh && sh bin/deploy.sh",
-    "export:windows": "rmdir /S /Y out & next export",
-    "copy:windows": "powershell .\\bin\\copy.ps1",
-    "test:windows": "cd functions & yarn test:prod",
-    "deploy:windows": "powershell .\\bin\\build.ps1 & powershell .\\bin\\deploy.ps1",
     "deploy:database": "firebase deploy --only database",
     "deploy:firestore": "firebase deploy --only firestore",
     "deploy:functions": "firebase deploy --only functions",
